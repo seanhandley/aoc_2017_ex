@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.18.1">
-    <title>Day2 – AoC v2017</title>
+    <title>Day3 – AoC v2017</title>
     <link rel="stylesheet" href="dist/app-c922dbe7ef.css" />
     
     <script src="dist/sidebar_items-892d727299.js"></script>
@@ -68,9 +68,9 @@
 
       <h1>
         <small class="visible-xs">AoC v2017</small>
-        Day2
+        Day3
         
-          <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_2.ex#L1" title="View Source" class="view-source" rel="help">
+          <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_3.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
             <span class="sr-only">View Source</span>
           </a>
@@ -79,50 +79,58 @@
 
       
         <section id="moduledoc">
-          <p><em>Corruption Checksum: As you walk through the door, a glowing humanoid shape yells in your direction.</em></p>
-<h2 id="module-day-2-corruption-checksum" class="section-heading">
-  <a href="#module-day-2-corruption-checksum" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Day 2: Corruption Checksum
+          <p><em>Spiral Memory: You come across an experimental new kind of memory stored on an infinite two-dimensional grid.</em></p>
+<h2 id="module-day-3-spiral-memory" class="section-heading">
+  <a href="#module-day-3-spiral-memory" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Day 3: Spiral Memory
 </h2>
 
-<p>As you walk through the door, a glowing humanoid shape yells in your direction. <em>“You there! Your state appears to be idle. Come help us repair the corruption in this spreadsheet - if we take another millisecond, we’ll have to display an hourglass cursor!”</em></p>
-<p>The spreadsheet consists of rows of apparently-random numbers. To make sure the recovery process is on the right track, they need you to calculate the spreadsheet’s checksum. For each row, determine the difference between the largest value and the smallest value; the checksum is the sum of all of these differences.</p>
-<p>For example, given the following spreadsheet:</p>
-<pre><code class="elixir">5 1 9 5
-7 5 3
-2 4 6 8</code></pre>
+<p>You come across an experimental new kind of memory stored on an infinite two-dimensional grid.</p>
+<p>Each square on the grid is allocated in a spiral pattern starting at a location marked 1 and then counting up while spiraling outward. For example, the first few squares are allocated like this:</p>
+<pre><code class="elixir">17  16  15  14  13
+18   5   4   3  12
+19   6   1   2  11
+20   7   8   9  10
+21  22  23---&gt; ...</code></pre>
+<p>While this is very space-efficient (no squares are skipped), requested data must be carried back to square 1 (the location of the only access port for this memory system) by programs that can only move up, down, left, or right. They always take the shortest path: the Manhattan Distance between the location of the data and square 1.</p>
+<p>For example:</p>
 <ul>
-<li>The first row’s largest and smallest values are <code class="inline">9</code> and <code class="inline">1</code>, and their difference is <code class="inline">8</code>.
+<li>Data from square <code class="inline">1</code> is carried <code class="inline">0</code> steps, since it’s at the access port.
 </li>
-<li>The second row’s largest and smallest values are <code class="inline">7</code> and <code class="inline">3</code>, and their difference is <code class="inline">4</code>.
+<li>Data from square <code class="inline">12</code> is carried <code class="inline">3</code> steps, such as: <code class="inline">down</code>, <code class="inline">left</code>, <code class="inline">left</code>.
 </li>
-<li>The third row’s difference is <code class="inline">6</code>.
+<li>Data from square <code class="inline">23</code> is carried only <code class="inline">2</code> steps: <code class="inline">up</code> twice.
+</li>
+<li>Data from square <code class="inline">1024</code> must be carried <code class="inline">31</code> steps.
 </li>
 </ul>
-<p>In this example, the spreadsheet’s checksum would be <code class="inline">8 + 4 + 6 = 18</code>.</p>
-<p>What is the checksum for the spreadsheet in your puzzle input?</p>
+<p>How many steps are required to carry the data from the square identified in your puzzle input all the way to the access port?</p>
 <h2 id="module-part-two" class="section-heading">
   <a href="#module-part-two" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Part Two
 </h2>
 
-<p><em>“Great work; looks like we’re on the right track after all. Here’s a star for your effort.”</em> However, the program seems a little worried. Can programs be worried?</p>
-<p><em>“Based on what we’re seeing, it looks like all the User wanted is some information about the evenly divisible values in the spreadsheet. Unfortunately, none of us are equipped for that kind of calculation - most of us specialize in bitwise operations.”</em></p>
-<p>It sounds like the goal is to find the only two numbers in each row where one evenly divides the other - that is, where the result of the division operation is a whole number. They would like you to find those numbers on each line, divide them, and add up each line’s result.</p>
-<p>For example, given the following spreadsheet:</p>
-<pre><code class="elixir">5 9 2 8
-9 4 7 3
-3 8 6 5</code></pre>
+<p>As a stress test on the system, the programs here clear the grid and then store the value <code class="inline">1</code> in square <code class="inline">1</code>. Then, in the same allocation order as shown above, they store the sum of the values in all adjacent squares, including diagonals.</p>
+<p>So, the first few squares’ values are chosen as follows:</p>
 <ul>
-<li>In the first row, the only two numbers that evenly divide are <code class="inline">8</code> and <code class="inline">2</code>; the result of this division is <code class="inline">4</code>.
+<li>Square <code class="inline">1</code> starts with the value <code class="inline">1</code>.
 </li>
-<li>In the second row, the two numbers are <code class="inline">9</code> and <code class="inline">3</code>; the result is <code class="inline">3</code>.
+<li>Square <code class="inline">2</code> has only one adjacent filled square (with value <code class="inline">1</code>), so it also stores <code class="inline">1</code>.
 </li>
-<li>In the third row, the result is <code class="inline">2</code>.
+<li>Square <code class="inline">3</code> has both of the above squares as neighbors and stores the sum of their values, <code class="inline">2</code>.
+</li>
+<li>Square <code class="inline">4</code> has all three of the aforementioned squares as neighbors and stores the sum of their values, <code class="inline">4</code>.
+</li>
+<li>Square <code class="inline">5</code> only has the first and fourth squares as neighbors, so it gets the value <code class="inline">5</code>.
 </li>
 </ul>
-<p>In this example, the sum of the results would be <code class="inline">4 + 3 + 2 = 9</code>.</p>
-<p>What is the sum of each row’s result in your puzzle input?</p>
+<p>Once a square is written, its value does not change. Therefore, the first few squares would receive the following values:</p>
+<pre><code class="elixir">147  142  133  122   59
+304    5    4    2   57
+330   10    1    1   54
+351   11   23   25   26
+362  747  806---&gt;   ...</code></pre>
+<p>What is the first value written that is larger than your puzzle input?</p>
 
         </section>
       
@@ -148,17 +156,11 @@
     <a href="#part_1/1">part_1(string)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Yields the answer for day 2, part 1</p>
-</div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#part_2/1">part_2(string)</a>
   </div>
-  
-    <div class="summary-synopsis"><p>Yields the answer for day 2, part 2</p>
-</div>
   
 </div>
 
@@ -191,7 +193,7 @@
     </a>
     <span class="signature">part_1(string)</span>
     
-      <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_2.ex#L53" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_3.ex#L54" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -200,8 +202,7 @@
     
   </div>
   <section class="docstring">
-    <p>Yields the answer for day 2, part 1</p>
-
+    
   </section>
 </div>
 <div class="detail" id="part_2/1">
@@ -214,7 +215,7 @@
     </a>
     <span class="signature">part_2(string)</span>
     
-      <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_2.ex#L60" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_3.ex#L60" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -223,8 +224,7 @@
     
   </div>
   <section class="docstring">
-    <p>Yields the answer for day 2, part 2</p>
-
+    
   </section>
 </div>
 

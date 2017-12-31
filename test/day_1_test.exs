@@ -1,6 +1,6 @@
 defmodule AdventDay1Test do
   use ExUnit.Case
-  # doctest Advent
+  doctest Advent.Solutions.Day1
 
   test "day 1 part 1" do
     assert Advent.Solutions.Day1.part_1(input()) == 1216

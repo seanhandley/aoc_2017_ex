@@ -1,17 +1,10 @@
 # Advent Of Code 2017
 
+[![Build Status](https://travis-ci.org/seanhandley/aoc_2017_ex.svg?branch=master)](https://travis-ci.org/seanhandley/aoc_2017_ex)
+
 Elixir solutions for Advent Of Code 2017.
 
-```
-             *
-            /.\
-           /..'\
-           /'.'\
-          /.''.'\
-          /.'.'.\
-   "'""""/'.''.'.\""'"'"
-         ^^^[_]^^^
-```
+![AoC](https://github.com/seanhandley/aoc_2017_ex/blob/master/docs/assets/logo.png)
 
 ## Usage
 

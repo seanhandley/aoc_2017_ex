@@ -1,0 +1,1 @@
+mix compile; ex_doc "Advent Of Code 2017" "0.1.0" _build/dev/lib/aoc_2017_ex/ebin/ -u "https://github.com/seanhandley/aoc_2017_ex"

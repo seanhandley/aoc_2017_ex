@@ -1,13 +1,15 @@
 defmodule AdventDay1Test do
   use ExUnit.Case
-  doctest Advent.Solutions.Day1
+  import Advent.Day1
+
+  doctest Advent.Day1
 
   test "day 1 part 1" do
-    assert Advent.Solutions.Day1.part_1(input()) == 1216
+    assert part_1(input()) == 1216
   end
 
   test "day 1 part 2" do
-    assert Advent.Solutions.Day1.part_2(input()) == 1072
+    assert part_2(input()) == 1072
   end
 
   def input do

@@ -1,0 +1,260 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.18.1">
+    <title>Day1 – AoC v2017</title>
+    <link rel="stylesheet" href="dist/app-c922dbe7ef.css" />
+    
+    <script src="dist/sidebar_items-b95fcee097.js"></script>
+    
+    
+    
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+
+    <div class="main">
+<button class="sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<section class="sidebar">
+
+  
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        AoC
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v2017
+      </h2>
+    </div>
+    
+      <img src="assets/logo.png" alt="AoC" class="sidebar-projectImage">
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">AoC v2017</small>
+        Day1
+        
+          <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_1.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+        
+      </h1>
+
+      
+        <section id="moduledoc">
+          <p><em>Inverse Captcha: The night before Christmas, one of Santa’s Elves calls you in a panic.</em></p>
+<h2 id="module-day-1-inverse-captcha" class="section-heading">
+  <a href="#module-day-1-inverse-captcha" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Day 1: Inverse Captcha
+</h2>
+
+<p>  The night before Christmas, one of Santa’s Elves calls you in a panic. <em>“The printer’s broken! We can’t print the Naughty or Nice List!”</em> By the time you make it to sub-basement 17, there are only a few minutes until midnight. <em>“We have a big problem,”</em> she says; <em>“there must be almost fifty bugs in this system, but nothing else can print The List. Stand in this square, quick! There’s no time to explain; if you can convince them to pay you in stars, you’ll be able to—“</em> She pulls a lever and the world goes blurry.</p>
+<p>  When your eyes can focus again, everything seems a lot more pixelated than before. She must have sent you inside the computer! You check the system clock: 25 milliseconds until midnight. With that much time, you should be able to collect all fifty stars by December 25th.</p>
+<p>  Collect stars by solving puzzles. Two puzzles will be made available on each day/millisecond in the advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!</p>
+<p>  You’re standing in a room with <em>“digitization quarantine”</em> written in LEDs along one wall. The only door is locked, but it includes a small interface. <em>“Restricted Area - Strictly No Digitized Users Allowed.”</em></p>
+<p>  It goes on to explain that you may only leave by solving a captcha to prove you’re not a human. Apparently, you only get one millisecond to solve the captcha: too fast for a normal human, but it feels like hours to you.</p>
+<p>  The captcha requires you to review a sequence of digits (your puzzle input) and find the sum of all digits that match the next digit in the list. The list is circular, so the digit after the last digit is the first digit in the list.</p>
+<p>  For example:</p>
+<ul>
+<li><code class="inline">1122</code> produces a sum of <code class="inline">3</code> (<code class="inline">1</code> + <code class="inline">2</code>) because the first digit (<code class="inline">1</code>) matches the second digit and the third digit (<code class="inline">2</code>) matches the fourth digit.
+</li>
+<li><code class="inline">1111</code> produces <code class="inline">4</code> because each digit (all <code class="inline">1</code>) matches the next.
+</li>
+<li><code class="inline">1234</code> produces <code class="inline">0</code> because no digit matches the next.
+</li>
+<li><p><code class="inline">91212129</code> produces <code class="inline">9</code> because the only digit that matches the next one is the last digit, <code class="inline">9</code>.</p>
+<p>  What is the solution to your captcha?</p>
+</li>
+</ul>
+<h2 id="module-part-two" class="section-heading">
+  <a href="#module-part-two" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Part Two
+</h2>
+
+<p>  You notice a progress bar that jumps to 50% completion. Apparently, the door isn’t yet satisfied, but it did emit a star as encouragement. The instructions change:</p>
+<p>  Now, instead of considering the next digit, it wants you to consider the digit halfway around the circular list. That is, if your list contains 10 items, only include a digit in your sum if the digit 10/2 = 5 steps forward matches it. Fortunately, your list has an even number of elements.</p>
+<p>  For example:</p>
+<ul>
+<li><code class="inline">1212</code> produces <code class="inline">6</code>: the list contains 4 items, and all four digits match the digit 2 items ahead.
+</li>
+<li><code class="inline">1221</code> produces <code class="inline">0</code>, because every comparison is between a <code class="inline">1</code> and a <code class="inline">2</code>.
+</li>
+<li><code class="inline">123425</code> produces <code class="inline">4</code>, because both <code class="inline">2</code>s match each other, but no other digit has a match.
+</li>
+<li><code class="inline">123123</code> produces <code class="inline">12</code>.
+</li>
+<li><p><code class="inline">12131415</code> produces <code class="inline">4</code>.</p>
+<p>  What is the solution to your new captcha?</p>
+</li>
+</ul>
+
+        </section>
+      
+
+      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#part_1/1">part_1(string)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Yields the answer for day 1, part 1</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#part_2/1">part_2(string)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Yields the answer for day 1, part 2</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+        </section>
+      
+
+      
+
+      
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="part_1/1">
+  
+  
+  <div class="detail-header">
+    <a href="#part_1/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">part_1(string)</span>
+    
+      <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_1.ex#L49" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Yields the answer for day 1, part 1</p>
+
+  </section>
+</div>
+<div class="detail" id="part_2/1">
+  
+  
+  <div class="detail-header">
+    <a href="#part_2/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">part_2(string)</span>
+    
+      <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_1.ex#L56" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Yields the answer for day 1, part 2</p>
+
+  </section>
+</div>
+
+        </section>
+      
+
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-778c9ef903.js"></script>
+  
+  
+  
+  
+  </body>
+</html>
+

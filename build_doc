@@ -1,3 +1,3 @@
 # /usr/bin/env bash
 
-mix compile; ex_doc "Advent Of Code 2017" "0.1.0" _build/dev/lib/aoc_2017_ex/ebin/ -u "https://github.com/seanhandley/aoc_2017_ex"
+mix compile; ex_doc "AoC" "2017" _build/dev/lib/aoc_2017_ex/ebin/ -u "https://github.com/seanhandley/aoc_2017_ex" -l logo.png

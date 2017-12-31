@@ -1,8 +1,8 @@
-defmodule AdventDay1Test do
+defmodule Day1Test do
   use ExUnit.Case
-  import Advent.Day1
+  import Day1
 
-  doctest Advent.Day1
+  doctest Day1
 
   test "day 1 part 1" do
     assert part_1(input()) == 1216

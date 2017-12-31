@@ -1,4 +1,4 @@
-defmodule Advent.Day1 do
+defmodule Day1 do
   @moduledoc """
 
   *Inverse Captcha: The night before Christmas, one of Santa's Elves calls you in a panic.*

@@ -1,0 +1,259 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.18.1">
+    <title>Day2 – AoC v2017</title>
+    <link rel="stylesheet" href="dist/app-c922dbe7ef.css" />
+    
+    <script src="dist/sidebar_items-b95fcee097.js"></script>
+    
+    
+    
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+
+    <div class="main">
+<button class="sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<section class="sidebar">
+
+  
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        AoC
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v2017
+      </h2>
+    </div>
+    
+      <img src="assets/logo.png" alt="AoC" class="sidebar-projectImage">
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">AoC v2017</small>
+        Day2
+        
+          <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_2.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+        
+      </h1>
+
+      
+        <section id="moduledoc">
+          <p><em>Corruption Checksum: As you walk through the door, a glowing humanoid shape yells in your direction.</em></p>
+<h2 id="module-day-2-corruption-checksum" class="section-heading">
+  <a href="#module-day-2-corruption-checksum" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Day 2: Corruption Checksum
+</h2>
+
+<p>As you walk through the door, a glowing humanoid shape yells in your direction. <em>“You there! Your state appears to be idle. Come help us repair the corruption in this spreadsheet - if we take another millisecond, we’ll have to display an hourglass cursor!”</em></p>
+<p>The spreadsheet consists of rows of apparently-random numbers. To make sure the recovery process is on the right track, they need you to calculate the spreadsheet’s checksum. For each row, determine the difference between the largest value and the smallest value; the checksum is the sum of all of these differences.</p>
+<p>For example, given the following spreadsheet:</p>
+<pre><code class="elixir">5 1 9 5
+7 5 3
+2 4 6 8</code></pre>
+<ul>
+<li>The first row’s largest and smallest values are <code class="inline">9</code> and <code class="inline">1</code>, and their difference is <code class="inline">8</code>.
+</li>
+<li>The second row’s largest and smallest values are <code class="inline">7</code> and <code class="inline">3</code>, and their difference is <code class="inline">4</code>.
+</li>
+<li>The third row’s difference is <code class="inline">6</code>.
+</li>
+</ul>
+<p>In this example, the spreadsheet’s checksum would be <code class="inline">8 + 4 + 6 = 18</code>.</p>
+<p>What is the checksum for the spreadsheet in your puzzle input?</p>
+<h2 id="module-part-two" class="section-heading">
+  <a href="#module-part-two" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Part Two
+</h2>
+
+<p><em>“Great work; looks like we’re on the right track after all. Here’s a star for your effort.”</em> However, the program seems a little worried. Can programs be worried?</p>
+<p><em>“Based on what we’re seeing, it looks like all the User wanted is some information about the evenly divisible values in the spreadsheet. Unfortunately, none of us are equipped for that kind of calculation - most of us specialize in bitwise operations.”</em></p>
+<p>It sounds like the goal is to find the only two numbers in each row where one evenly divides the other - that is, where the result of the division operation is a whole number. They would like you to find those numbers on each line, divide them, and add up each line’s result.</p>
+<p>For example, given the following spreadsheet:</p>
+<pre><code class="elixir">5 9 2 8
+9 4 7 3
+3 8 6 5</code></pre>
+<ul>
+<li>In the first row, the only two numbers that evenly divide are <code class="inline">8</code> and <code class="inline">2</code>; the result of this division is <code class="inline">4</code>.
+</li>
+<li>In the second row, the two numbers are <code class="inline">9</code> and <code class="inline">3</code>; the result is <code class="inline">3</code>.
+</li>
+<li>In the third row, the result is <code class="inline">2</code>.
+</li>
+</ul>
+<p>In this example, the sum of the results would be <code class="inline">4 + 3 + 2 = 9</code>.</p>
+<p>What is the sum of each row’s result in your puzzle input?</p>
+
+        </section>
+      
+
+      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#part_1/1">part_1(string)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Yields the answer for day 2, part 1</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#part_2/1">part_2(string)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Yields the answer for day 2, part 2</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+        </section>
+      
+
+      
+
+      
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="part_1/1">
+  
+  
+  <div class="detail-header">
+    <a href="#part_1/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">part_1(string)</span>
+    
+      <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_2.ex#L53" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Yields the answer for day 2, part 1</p>
+
+  </section>
+</div>
+<div class="detail" id="part_2/1">
+  
+  
+  <div class="detail-header">
+    <a href="#part_2/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">part_2(string)</span>
+    
+      <a href="https://github.com/seanhandley/aoc_2017_ex/blob/master/lib/advent/day_2.ex#L60" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Yields the answer for day 2, part 2</p>
+
+  </section>
+</div>
+
+        </section>
+      
+
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-778c9ef903.js"></script>
+  
+  
+  
+  
+  </body>
+</html>
+

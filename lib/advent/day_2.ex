@@ -1,4 +1,4 @@
-defmodule Advent.Day2 do
+defmodule Day2 do
   @moduledoc """
 
   *Corruption Checksum: As you walk through the door, a glowing humanoid shape yells in your direction.*

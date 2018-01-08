@@ -1,4 +1,4 @@
-defmodule Day2 do
+defmodule Advent.Day2 do
   @moduledoc """
 
   *Corruption Checksum: As you walk through the door, a glowing humanoid shape yells in your direction.*
@@ -88,7 +88,7 @@ defmodule Day2 do
 
   defp do_combine(_list, _list_length, 0, _pick_acc, _acc), do: [[]]
   # optimization
-  defp do_combine(list, _list_length, 1, _pick_acc, _acc), do: list |> Enum.map(&[&1])
+  defp do_combine(list, _list_length, 1, _pick_acc, _acc), do: Enum.map(list, &[&1])
 
   defp do_combine(list, list_length, k, pick_acc, acc) do
     list

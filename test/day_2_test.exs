@@ -5,7 +5,7 @@ defmodule Day2Test do
   doctest Day2
 
   test "day 2 part 1" do
-    assert part_1(input()) == 51833
+    assert part_1(input()) == 51_833
   end
 
   test "day 2 part 2" do

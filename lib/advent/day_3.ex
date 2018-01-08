@@ -1,4 +1,4 @@
-defmodule Day3 do
+defmodule Advent.Day3 do
   @moduledoc """
 
   *Spiral Memory: You come across an experimental new kind of memory stored on an infinite two-dimensional grid.*
@@ -93,9 +93,9 @@ defmodule Day3 do
     end
   end
 
-  def change_direction?(num)
-    spiral_sequence.include?(num)
-  end
+  # def change_direction?(num) 
+  #   spiral_sequence.include?(num)
+  # end
 
   def change_direction?(spiral_sequence, num) do
     Enum.member?(spiral_sequence, num)
@@ -109,9 +109,9 @@ defmodule Day3 do
   #   end
   # end
 
-  def spiral do
+  # def spiral do
     
-  end
+  # end
 
   def distance(x, y, orig) do
     abs(x - orig) + abs(y - orig)

@@ -1,4 +1,4 @@
-defmodule Day1 do
+defmodule Advent.Day1 do
   @moduledoc """
 
   *Inverse Captcha: The night before Christmas, one of Santa's Elves calls you in a panic.*
@@ -58,7 +58,7 @@ defmodule Day1 do
 
     offset = div(length(parsed_input), 2)
 
-    parsed_input |> calculate_captcha(offset)
+    calculate_captcha(parsed_input, offset)
   end
 
   defp parse_input(input) do

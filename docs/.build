@@ -4,12 +4,13 @@ fonts/icomoon.eot
 fonts/icomoon.svg
 fonts/icomoon.ttf
 fonts/icomoon.woff
-dist/sidebar_items-892d727299.js
+dist/sidebar_items-92bdd1241a.js
 api-reference.html
 assets/logo.png
 search.html
 404.html
-Day1.html
-Day2.html
-Day3.html
+Advent.html
+Advent.Day1.html
+Advent.Day2.html
+Advent.Day3.html
 index.html
